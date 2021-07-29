@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MedicamController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get("Estado/get", [MedicamController::class, "getEstado"]);
+
+Route::get("Medicamentos/get", [MedicamController::class,"getMedicamentos"]);
+Route::post("Medicamento/post", [MedicamController::class,"crearMedicamento"]);
